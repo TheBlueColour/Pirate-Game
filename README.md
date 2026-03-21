@@ -35,16 +35,19 @@ The third minigame is a QTE minigame where the player is given a direction they 
 
 ## Research *(Approx. 20-30% of word count)*
 
-As a group we looked at different party games and focusing on their minigames, avoiding any minigames that would require online multiplayer as our game would entirely rely on local multiplayer. We looked at games such as Mario Party and Party Panic as well as I took certain minigame inspiration from Sonic Unleashed and a game called Survivor from Roblox. 
-
-Party Panic:
-
-Party Panic is a multplayer party game minigame from 2016. This game manily inspired the lobby in my game, 
+As a group we looked at different party games and focusing on their minigames, avoiding any minigames that would require online multiplayer as our game would entirely rely on local multiplayer. We looked at games such as Mario Party and Party Panic as well as I took certain minigame inspiration from Sonic Unleashed. 
 
 ### Game Sources
 
-- Mario Party
-- 
+Party Panic:
+
+Party Panic is a multplayer party game minigame from 2016. This game manily inspired the lobby of my game. In Party Panic the players are in a lobby where the camera is pointed at all the players from a 3rd person where the players in a room and their points are displayed by a growing pillar beneath the player. I wanted to use a similar camera angle and but have the players movement be more limited within as well as have wins rather than points be displayed within the ui and not through a growing pillar. 
+
+Mario Party:
+
+We looked through different Mario Party minigames for inspiration, excluding any minigames that would require for the minigames to have teams (like 2v2 or 3v1) we wanted free for all minigames. The minigame we landed on that gave us the most inspiration was a visual style minigame where a certain amount of items move across a screen and one player picks a question for the other three to answer. The players have to walk over to different spots where the number matches with how many moved across the screen until a certain amount of questions is asked. Despote this being a 3v1 minigame originally we were able to translate it into a free for all, where the players have to specifically look for coins on a screen and count them and then input them on their ui element. Players every time are instructed to count coins rather than different questions each time, but with different amounts of coins and different objects blocking the coins.
+
+
 
 * What types of sources did you explore and why?
 * Which types of sources did you avoid and why?
