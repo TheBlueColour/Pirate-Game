@@ -68,24 +68,73 @@ Gang Beasts released in 2017 by Boneloaf studios was our main inspiration behind
 
 ### Tutorial Sources
 
-https://www.youtube.com/watch?v=yj04QBEjc38&t=2s - Levels and how to change between levels
-https://www.youtube.com/watch?v=sWh1jgHb6Tw - Game instances so that i can keep information between levels.
-https://www.youtube.com/watch?v=qVtoemgM7wI&t=633s - Help with the pick up system for the sword and gun
-https://www.youtube.com/watch?v=JuzSB4Tg8BQ - help with finding how to make the mouse visible
-https://www.youtube.com/watch?v=jkPxVScULh4 - Lock camera correctly in first person
-https://www.youtube.com/watch?v=hsBzIQfYZw0&t=96s - Lock camera in first person but didnt help
-https://www.youtube.com/watch?v=pWIJlsqli1w - Help with implementing hit scan which is just a line trace yay
-https://www.youtube.com/watch?v=LfwQUGOQu2M&t=390s - Help with spawning items on a map but it didnt help and i just looekd how i did the spawning coins again
-https://www.youtube.com/watch?v=tf0BvCl11lE&t=226s - Spawning swords on the map using a nav mesh instead of multiple spots
-https://www.youtube.com/watch?v=AN2PbE26mAk&t=235s - Spectator 
-https://www.youtube.com/watch?v=ef6SeknakeU&t=568s - how to make it multiplayer, didnt work, they did it differently to me
-https://www.youtube.com/watch?v=2GYicrkCElA - Didnt work 
-https://www.youtube.com/watch?v=s6DF1fkwTE8 - Countdown timer
-https://www.youtube.com/watch?v=RdaAVTMIg08&t=323s - was unable to make this work
+(How to Change/Load Levels - Unreal Engine 5 Tutorial) I used this video to help introduce me to creating different levels so that I could make seperate levels for the lobby and the three minigames. As well as learning about the "Open level" function so that I can switch between the levels. 
+
+(How to Create a Game Instance in Unreal Engine 5 - Carry Data Between Levels) I used this video to help me be introduced to game instances that allow to carry information over between levels. This allows for the entire game to be aware of certain things without resetting between levels.
+
+(How to Make a Simple Pick Up System in Unreal Engine 5 - Beginner Tutorial) I used this video to be to have the player pick up the sword and hold it, as well as I reused the tutorial for the gun in the Pvp Minigame. 
+
+(Unreal-5: UI-Menu Display & Mouse Visibility!) I used this video to able to find how to show and hide the mouse to allow the player on the keyboard interact with certain parts of the menu.
+
+(How to Make A True First Person Camera In Exactly 1 Minute!|UE6 & UE4) I used this video to help with the camera of the player as initally the camera moved seperately from the player meaning the player cant track their arms or legs so they cant track the sword. I wanted the camera to stick with the player head instead which this video helped me figure out. 
+
+(How To Clamp The Camera Rotation | How to Lock The Camera View - Unreal Engine 4/5 Tutorial) I wanted to use this tutorial to fix my issue with the Camera not lining up with the player head, however this video didnt help as it only covered how to have the camera be clamped to moving up and down and not lock it onto the player overall.
+
+(HITSCAN vs PROJECTILE | Explanation and Unreal Engine Implementation [UE4/UE5 EA2]) I used this video to learn how to make a hitscan gun, I ended up learning that hitscan uses the same line trace mechanic as my sword but it tracks the end of the gun and a has a long line trace to check if it overlaps with another player. 
+
+(How to Make a Rnadom Enemy Spawner in Unreal Engine 5) I used this video to help me make sword spawning, initially i made the spawner a bunch of spawn blueprints but this video helped me instead make it rely on a nav mesh instead. I then reused the same method for coin spawning and gun spawning on the map.
+
+(How To Spawn Items In Random Locations - Unreal Engine 4 Tutorial) Within Minigame 2 I had to spawn coins suspended in the air and not spawn on the ground so therefore I couldn't use a nav mesh, I instead used this video to refine how to spawn items through blueprint spawn points, I ran into some issues with the video but was able to fix them
+
+
+(How To Put The Player In Spectator Mode When They're Dead - Unreal Engine Tutorial) I used this video to learn about the spectator actor and have the pvp players switch to posses the spectator actor instead. 
+
+(Multiplayer Replication Basics in Unreal Engine 5 - Make a Multiplayer Game) I tried to use this video to learn how to make my gavme multiplayer and allow for multiple players, however this video only taught how to make online multiplayer when my focus was local multiplayer so this tutorial was useless.
+
+(Multiplayer Widgets On One OR All Screens) I used this video to try and learn how to make the health display on each of the players screens, but unfortunately this video only focuses on online multiplayer and not local multiplayer therefore this didnt work. 
+
+(How To Make A Countdown Timer | Unreal Engine 5 Tutorial) I used this video to learn how to make a countdown timer for my lobby and my Visual Minigame! 
+
+(How To Make Gamepad Naivgation For Menu/UI Widgets In Unreal Engine 5) I used this video to try and make the menu work for both the keyboard users and the gamepad, however this didnt work really well as the menu only either wants to be used by the mouse or the gamepad and wont focus on both at the same time.
 
 
 
-Where I got the Arrows from:
+
+
+
+### References:
+
+#### Youtube Videos Used:
+
+How To Change / Load Levels - Unreal Engine 5 Tutorial - YouTube (s.d.) At: https://www.youtube.com/watch?v=yj04QBEjc38&t=2s (Accessed  07/04/2026).
+
+How to Create a Game Instance in Unreal Engine 5 - Carry Data Between Levels - YouTube (s.d.) At: https://www.youtube.com/watch?v=sWh1jgHb6Tw (Accessed  07/04/2026).
+
+How to Make a Simple Pick Up System in Unreal Engine 5 - Beginner Tutorial - YouTube (s.d.) At: https://www.youtube.com/watch?v=qVtoemgM7wI&t=633s (Accessed  07/04/2026).
+
+Unreal-5: UI-Menu Display & Mouse Visibility! - YouTube (s.d.) At: https://www.youtube.com/watch?v=JuzSB4Tg8BQ (Accessed  07/04/2026).
+
+How To Make A True First Person Camera In Exactly 1 Minute! | UE5 & UE4 - YouTube (s.d.) At: https://www.youtube.com/watch?v=jkPxVScULh4 (Accessed  07/04/2026).
+
+How To Clamp The Camera Rotation | How To Lock The Camera View - Unreal Engine 4/5 Tutorial - YouTube (s.d.) At: https://www.youtube.com/watch?v=hsBzIQfYZw0&t=96s (Accessed  07/04/2026).
+
+HITSCAN vs PROJECTILE | Explanation and Unreal Engine Implementation [UE4/UE5 EA2] - YouTube (s.d.) At: https://www.youtube.com/watch?v=pWIJlsqli1w (Accessed  07/04/2026).
+
+How To Spawn Items In Random Locations - Unreal Engine 4 Tutorial - YouTube (s.d.) At: https://www.youtube.com/watch?v=LfwQUGOQu2M&t=390s (Accessed  07/04/2026).
+
+How to Make a Random Enemy Spawner in Unreal Engine 5 - YouTube (s.d.) At: https://www.youtube.com/watch?v=tf0BvCl11lE&t=226s (Accessed  07/04/2026).
+
+How To Put The Player In Spectator Mode When They’re Dead - Unreal Engine Tutorial - YouTube (s.d.) At: https://www.youtube.com/watch?v=AN2PbE26mAk&t=235s (Accessed  07/04/2026).
+
+Multiplayer Replication Basics in Unreal Engine 5 - Make a Multiplayer Game - YouTube (s.d.) At: https://www.youtube.com/watch?v=ef6SeknakeU&t=568s (Accessed  07/04/2026).
+
+Multiplayer Widgets On One Or All Screens | Replication - Unreal Engine Tutorial - YouTube (s.d.) At: https://www.youtube.com/watch?v=2GYicrkCElA (Accessed  07/04/2026).
+
+How To Make A Countdown Timer | Unreal Engine 5 Tutorial - YouTube (s.d.) At: https://www.youtube.com/watch?v=s6DF1fkwTE8 (Accessed  07/04/2026).
+
+How To Make Gamepad Navigation For Menu/UI Widgets In Unreal Engine 5 - YouTube (s.d.) At: https://www.youtube.com/watch?v=RdaAVTMIg08&t=323s (Accessed  07/04/2026).
+
+
+#### Where I got the Arrows from:
  
-https://www.i2symbol.com/symbols/arrows
-
+Arrow Symbols (Copy and Paste) ← ↑ → ↓ – Unicode Arrows & Arrow Emojis (s.d.) At: https://www.i2symbol.com/symbols/arrows (Accessed  07/04/2026).
