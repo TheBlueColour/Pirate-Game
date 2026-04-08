@@ -97,12 +97,32 @@ Gang Beasts released in 2017 by Boneloaf studios was our main inspiration behind
 
 (How To Make Gamepad Naivgation For Menu/UI Widgets In Unreal Engine 5) I used this video to try and make the menu work for both the keyboard users and the gamepad, however this didnt work really well as the menu only either wants to be used by the mouse or the gamepad and wont focus on both at the same time.
 
+## Implementation 
+
+### The Lobby
+My progress started with working on the lobby and different Levels for each minigame to have a way to switch between the lobby and the two minigames. I created a Game Instance for the game to be able to track which minigame to send the player to through the "LevelTrigger" blueprint that on contact with a player sends the players to a new levels. LevelTrigger continiously checks if within the UI the amount of "Ready"'s are clicked are the same amount as players in the game as well as if the countdown has ended before moving the actor to overlap with the players. There is an integer that increases in different level game modes, and depending on the number of that integer it will send to a different minigame, after the third minigame the number resets.
+
+Checking when to move and overlap the blueprint with the players:
+![LevelTrigger Blueprint](image-6.png)
+
+The level change function:
+![LevelTrigger Blueprint](image-5.png)
+
+Within the lobby I then added two different widgets for the UI, within the Level Blueprint for the lobby level it triggers the first widget which is the Main Menu, that pauses the game and allows the player to "Play" the game, check the "Controls" and "Exit" the game. I initally wanted the Main Menu to register with both mouse clicking and the controller however the two wouldn't work at the same time so I priotized the mouse, making sure that the mouse is shown during the menu. 
+
+![Menu Screen](image-7.png)
+
+This Main Menu screen is then reused as a Pause Menu if the player click "P" or "Start" on the controller, it sets a boolean called "Playing?" if it has been used once and since then it will not redirect to the second Widget and just be used as a Pause Menu. If the Menu is used for the first time upon loading in pressing "Play" will unpause the game and spawn the second Widget in that tracks how many players there are playing and depending on how many there are the Widget requires for that many players to click "enter" or "start" to click Ready. A countdown will then trigger that updates every tick to countdown and once its zero the players are teleported to a minigame. 
+
+The Countdown Timer:
+![Timer](image-8.png)
+
+### Pvp Minigame (Minigame 1)
 
 
 
 
-
-### References:
+## References:
 
 #### Youtube Videos Used:
 
