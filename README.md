@@ -121,8 +121,22 @@ The Countdown Timer:
 
 ### Pvp Minigame (Minigame 1)
 
-The first thing I tackled with the PVP minigame was the swords as the entire minigame relies on the players being able to interact and fight each other. This meant I had to work on two seperate things, one being how to spawn the swords and allow the player to pick them up, and the second being having the sword impact with the other player and deal damage. To spawn in the swords I created a Blueprint that I would place in the world to run upon Beginplay. It checks how many items it has spawned of the swords against how many i want to spawn
+The first thing I tackled with the PVP minigame was the swords as the entire minigame relies on the players being able to interact and fight each other. This meant I had to work on two seperate things, one being how to spawn the swords and allow the player to pick them up, and the second being having the sword impact with the other player and deal damage. 
 
+To spawn in the swords I created a Blueprint that I would place in the world to run upon Beginplay. It checks how many items it has spawned of the swords against how many I want to spawn if it is below that number it will go through, increase the Items on Map and then spawn an actor in the world. Initially to spawn the swords in I used the blueprint's location which would mean I would have to place hundreds of the blueprint so that each would have a chance to spawn an item, this was an issue because it wouldn't be as truly random to spawn and would also mean I have to place down hundreds of blueprints. To avoid this issue, I instead made the swords spawn using a nav mesh so it recognises the entire walkable ground as a spot to place the sword which means I do not have to spawn more than one blueprint actor. To have the function constantly run even though it's called in Event Beginplay, there's a function called "Set Timer by Function Name" that will loop the function every few seconds where I chose 5 seconds.
+
+Sword Spawing Blueprint Actor:
+![Example of Sword Spawning code](image.png)
+
+Sword Spawning Function:
+![Sword Spawning](image-1.png)
+
+The next major thing with the sword is the ability to pick it up for the player, so I gave the player an input mapping for interacting and then gave the sword an interface. Within the sword if its interacted with the sword will simply destroy itself, it's within the Third Person Character that the game checks if the item interacted with is the sword wanted and running the sword interface. If it is the sword being interacted with, a skeletal mesh asset the player contains on their character is filled in with the sword asset and has a boolean of "Has ASword" is marked true so any actions that require a sword can now be performed. 
+
+The Sword interaction within the Player Character:
+![Sword Picking up](image-2.png)
+
+I then focused on the sword being able to impact things and players, so with my placeholder sword I made it a skeleton mesh and within the skeleton added two sockets at the start of the sword and the end of the sword so I'm able to reference these points into my line trace. 
 
 
 ## References:
