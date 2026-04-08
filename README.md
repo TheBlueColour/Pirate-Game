@@ -121,6 +121,7 @@ The Countdown Timer:
 
 ### Pvp Minigame (Minigame 1)
 
+The first thing I tackled with the PVP minigame was the swords as the entire minigame relies on the players being able to interact and fight each other. This meant I had to work on two seperate things, one being how to spawn the swords and allow the player to pick them up, and the second being having the sword impact with the other player and deal damage. To spawn in the swords I created a Blueprint that I would place in the world to run upon Beginplay. It checks how many items it has spawned of the swords against how many i want to spawn
 
 
 
