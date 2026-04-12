@@ -100,7 +100,8 @@ Gang Beasts released in 2017 by Boneloaf studios was our main inspiration behind
 ## Implementation 
 
 ### The Lobby
-My progress started with working on the lobby and different Levels for each minigame to have a way to switch between the lobby and the two minigames. I created a Game Instance for the game to be able to track which minigame to send the player to through the "LevelTrigger" blueprint that on contact with a player sends the players to a new levels. LevelTrigger continiously checks if within the UI the amount of "Ready"'s are clicked are the same amount as players in the game as well as if the countdown has ended before moving the actor to overlap with the players. There is an integer that increases in different level game modes, and depending on the number of that integer it will send to a different minigame, after the third minigame the number resets.
+
+My progress started with working on the lobby and different Levels for each minigame to have a way to switch between the lobby and the two minigames. I created a Game Instance for the game to be able to track which minigame to send the player to through the "LevelTrigger" blueprint that on contact with a player sends the players to a new levels. LevelTrigger continiously checks if within the UI the amount of "Ready"'s are clicked are the same amount as players in the game as well as if the countdown has ended before moving the actor to overlap with the players. There is an integer that increases in different level game modes, and depending on the number of that integer it will send to a different minigame, after the third minigame the number resets. Initially player one was the only player that could click the 'ready' buttons with the mouse and the gamepad, other players, couldnt, later in production I found a method of checking the player input that I applied to this. It checks the input of which controller ID has clicked with a switch function that switches which process it will do depending on that number, through that clicking "enter" or "start" interacts with the correct 'ready' of the player. 
 
 Checking when to move and overlap the blueprint with the players:
 ![LevelTrigger Blueprint](ReadMeImages/image-6.png)
@@ -112,7 +113,7 @@ Within the lobby I then added two different widgets for the UI, within the Level
 
 ![Menu Screen](ReadMeImages/image-7.png)
 
-This Main Menu screen is then reused as a Pause Menu if the player click "P" or "Start" on the controller, it sets a boolean called "Playing?" if it has been used once and since then it will not redirect to the second Widget and just be used as a Pause Menu. If the Menu is used for the first time upon loading in pressing "Play" will unpause the game and spawn the second Widget in that tracks how many players there are playing and depending on how many there are the Widget requires for that many players to click "enter" or "start" to click Ready. A countdown will then trigger that updates every tick to countdown and once its zero the players are teleported to a minigame. 
+This Main Menu screen is then reused as a Pause Menu if the player click "P" or "Start" on the controller, it sets a boolean called "Playing?" if it has been used once and since then it will not redirect to the second Widget and just be used as a Pause Menu (which was an issue at first in other minigames). If the Menu is used for the first time upon loading in pressing "Play" will unpause the game and spawn the second Widget in that tracks how many players there are playing and depending on how many there are the Widget requires for that many players to click "enter" or "start" to click Ready. A countdown will then trigger that updates every tick to countdown and once its zero the players are teleported to a minigame. 
 
 The Countdown Timer:
 ![Timer](ReadMeImages/image-8.png)
@@ -136,7 +137,36 @@ The next major thing with the sword is the ability to pick it up for the player,
 The Sword interaction within the Player Character:
 ![Sword Picking up](image-2.png)
 
-I then focused on the sword being able to impact things and players, so with my placeholder sword I made it a skeleton mesh and within the skeleton added two sockets at the start of the sword and the end of the sword so I'm able to reference these points into my line trace. 
+I then focused on the sword being able to impact things and players, so with my placeholder sword I made it a skeleton mesh and within the skeleton added two sockets at the start of the sword and the end of the sword so I'm able to reference these points into my line trace. With these two points I am able to input it into my line trace so it has a start and an end which will pernamently be tracking the sword's movement with the out hit being a general damage dealer to anything that has health will depleate health the same amount every single time. Later once I recieved a sword swing animation from Mike Levin I converted it into an Animation Montage so that I could add "notifys" in the animation to for what duration of the animation the line trace needs to be active, so that the line trace can actually be active that entire time I switched the function to be a timer function that loops for the time of the notifs in the animation montage. 
+
+Sword to attack:
+![Sword Code](image-3.png)
+
+With the sword working and being able impact and damage dummies made I had to focus on making the multiplayer.
+- Traps
+- Death, ragdoll, spectator
+- Gun
+- Animations
+
+
+### Minigame 2:
+
+- Spawning coins
+- The widget and how it was done incorrectly at first, altered to work
+- Spawning random items
+- Resetting Coins and items
+- Timer and blinds
+
+### Minigame 3:
+ 
+- Displaying different arrows over time
+- The incorrect input
+- The controller and checking input
+- Checking which players lost (for all minigames lowkey)
+
+### Lobby
+
+- Checking which players win after all three minigames
 
 
 ## References:
