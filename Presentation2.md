@@ -44,8 +44,7 @@ paginate: true
 
 - Players fight in a shared arena  
 - Weapons include:
-  - Cutlass  
-  - Shields  
+  - Cutlass   
   - Firearms  
 
 - Environment includes traps and hazards  
@@ -121,7 +120,7 @@ paginate: true
 # Current State
 
 - Core game concept fully defined  
-- Minigames designed and partially implemented  
+- Minigames designed and implemented  
 - Environment prototype completed  
 - Initial assets created  
 
