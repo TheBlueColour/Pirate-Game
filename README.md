@@ -230,9 +230,9 @@ Lastly I asked the players wany additional feedback or features they would like 
 
     'Swing for the sword hit instead of a line maybe'
 
-From all these suggestions I was able to add a gun into the pvp minigame, all the healths of the players are displayed on screen and the game locks the player out from picking up multiple swords at once. As well as I added instructions before every single minigame on how to play and what controls the minigames use. For the arrow minigame I was able to add a timer between each press so that the player must respond in a certain amount of time, as well as a visual indication of what button they must press with the arrows flashing yellow and a green tick indication if they responded correctly. For the Counting Coins minigame I was able to prevent sabotage by making the ui only accessable by certain controller id's and through buttons on the keyboard/gamepad rather than clicking on the mouse.
+From all these suggestions I was able to add a gun into the pvp minigame, all the healths of the players are displayed on screen and the game locks the player out from picking up multiple swords at once, and the line trace following the entire animation swing rather than just one click of the mouse/button. As well as I added instructions before every single minigame on how to play and what controls the minigames use. For the arrow minigame I was able to add a timer between each press so that the player must respond in a certain amount of time, as well as a visual indication of what button they must press with the arrows flashing yellow and a green tick indication if they responded correctly. For the Counting Coins minigame I was able to prevent sabotage by making the ui only accessable by certain controller id's and through buttons on the keyboard/gamepad rather than clicking on the mouse.
 
-## Relfection
+## Critical Relfection
 
 
 ## References:
