@@ -168,7 +168,69 @@ With the sword working and being able impact and damage dummies made I had to fo
 
 - Checking which players win after all three minigames
 
-## User Testing
+## Peer Testing
+
+I conducted a guided peer testing of the game half-way through the development where all three minigames were functional but not nessecarily had an ending to them. At the time, minigame 1 only had a sword and death, minigame 2 only had one round of coin counting and minigame 3 didnt have a time limit to how long you could take to click the correct button. My key goals from peer testing was to see how people responding to the minigames and what they felt could be altered to be more entertaining, with these responses I could go on to alter things to suit better to the players wants. All play tests were done on Windows 11. 
+
+It was rare for the players to play longer than 5 minutes, but that mainly came from the players play testing the game alone and the minigames not having an ending so they would stop playing after one round. This allows me to see how overall how long the minigames take if the player plays only play one round each.
+
+![Question 1](image-4.png)
+
+Most players found the game rather fun during testing, which is a positive sign that the minigames chosen entertain the players even when they are in their basic form.
+
+![Question 2](image-5.png)
+
+While playtesting some players encountered a few bugs. The line trace to hit other players with the sword is not big or long enough to hit other players properly. I was able to alter this later with adding animation so the line trace lasts longer and has a larger length of attack, I also made the line trace slightly longer so the players do not have to stand as close to each other damage each other. Another bug was coins clipping through the floor and triggering traps, with this I simply pulled the coins up from the floor and made the traps exclusively react to the player walking onto it. The only other bug/complaint was that the second and third minigame didnt have an ending, which at that point during the development was bound to happen.
+
+![Question 3](image-6.png)
+
+The responses to which minigame were the player's favourites, is heavily weighted towardd the pvp minigame having the most votes and the coin counting having the least votes. With this I am able to note which minigames to focus on making that bit better so the favourites are split even more evenly between the three minigames.
+
+![Question 4](image-7.png)
+
+I asked the players to express why they chose the minigame they chose as their favourite.
+
+Responses to Pvp Minigame being their favourite:
+    'It felt more engaging compared to the rest, specifically because it actively involves all the playera together. It creates a nice competitive tone for one of the games'
+    'Interesting implementation'
+    'The most interesting one, i can see how it could become very fun once its more polished'
+    'Most replayable as it plays off player interaction - inclusion of traps makes play more intense and introduces different ways of fighting'
+    'It was the most involved minigame, involving direct physical confrontation between players instead of racing to be the first player to win'
+
+Responses to Arrow keys Minigame being their favourite:
+    'Cause I’m so bad at my lefts and rights'
+    'I really enjoyed the concept of a rhythm game, even if it hadn’t been fully finished'
+    'Helldivers Strategems'
+    
+Responses to Counting Coins Minigame being their favourite:
+    'It was simple and I like how the stage looks'
+    'Because it was easy and fast to understand'
+
+With this I am able observe that the pvp minigame was the most engaging to the players and most replayable, whereas the Arrow keys was liked due to it's similarity to rhythm games that already exist, and the counting coins minigame was the least engaging at that point in development due to its simplicity at the time. 
+
+Lastly I asked the players wany additional feedback or features they would like to see added into the game. 
+    'Maybe have different value coins to make the counting trickier. Like gold coins are 3, silver are 2, etc.....'
+
+    'This was really fun! Def needs a gun in the arena'
+    'The PVP minigame could use some improvement, such as reducing the amount of health players have'
+
+    'None, very good!'
+
+    'The coins could move across/move around, 1st game have less health and some instructions'
+
+    'I think the other mini games could use some more depth like be more difficult or have more competitive potential'
+
+    'Adding UI elements like Health and Coin counter in the PVP minigame would make it easier to track player stats, also prevent players from grabbing another sword if they have one already; one player could effectively grab all of the weapons and the other players cannot attack.
+    The arrow keys minigame should implement a delay between button presses to prevent mashing keys to brue force their way to winning,
+    The counting minigame could be controlled with controller buttons instead of the mouse to prevent sabotaging other players, perhaps introduce moving to the coins to make it harder to count them.'
+
+    'Not really'
+
+    'Visible/audible indicator for when you press an arrow in the rhythm minigame - hard to tell if done right when two of the same arrows follow each other'
+
+    'Swing for the sword hit instead of a line maybe'
+
+From all these suggestions I was able to add a gun into the pvp minigame, all the healths of the players are displayed on screen and the game locks the player out from picking up multiple swords at once. As well as I added instructions before every single minigame on how to play and what controls the minigames use. For the arrow minigame I was able to add a timer between each press so that the player must respond in a certain amount of time, as well as a visual indication of what button they must press with the arrows flashing yellow and a green tick indication if they responded correctly. For the Counting Coins minigame I was able to prevent sabotage by making the ui only accessable by certain controller id's and through buttons on the keyboard/gamepad rather than clicking on the mouse.
 
 ## Relfection
 
