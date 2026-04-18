@@ -234,8 +234,7 @@ From all these suggestions I was able to add a gun into the pvp minigame, all th
 
 ## Critical Relfection
 
-
-## References:
+## Bibliography
 
 #### Youtube Videos Used:
 
@@ -268,6 +267,6 @@ How To Make A Countdown Timer | Unreal Engine 5 Tutorial - YouTube (s.d.) At: ht
 How To Make Gamepad Navigation For Menu/UI Widgets In Unreal Engine 5 - YouTube (s.d.) At: https://www.youtube.com/watch?v=RdaAVTMIg08&t=323s (Accessed  07/04/2026).
 
 
-#### Where I got the Arrows from:
+#### Declared Assets
  
 Arrow Symbols (Copy and Paste) ← ↑ → ↓ – Unicode Arrows & Arrow Emojis (s.d.) At: https://www.i2symbol.com/symbols/arrows (Accessed  07/04/2026).
