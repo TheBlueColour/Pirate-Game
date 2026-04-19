@@ -1,10 +1,16 @@
 ---
 marp: true
-theme: default
 paginate: true
+theme: gaia
+style: |
+  section {
+    font-size: 28px;
+  }
+
+
 ---
 
-# Pirate Game  
+# Pirate Party Game
 ## Development Progress
 
 ---
@@ -12,123 +18,129 @@ paginate: true
 # Overview
 
 - Competitive multiplayer party game  
-- Built in Unreal Engine 5  
+- Set on a stylised pirate island  
 - Focus on chaos, social interaction, and replayability  
+
+![bg right:40%](<Image Minigame 1-1.PNG>)
+
+---
+
+# Team Roles
+
+- Collaborative group development  
+- Shared responsibility across design and implementation  
+
+- Role 1:
+  - 3D modelling and environment creation  
+  - Asset development (island, props)  
+
+- Role 2:
+  - Game Development
+
+![bg left opacity:0.7](image-8.png)
 
 ---
 
 # Core Concept
 
-- Designed as a fast-paced party experience  
-- Emphasis on:
-  - Player interaction  
-  - Unpredictability  
-  - Short, repeatable rounds  
+- Fast-paced gameplay  
+- Focus on player interaction  
+- Emphasis on unpredictability and chaos
 
-- Structure based around multiple minigames  
+![bg opacity:0.3](H2x1_NSwitchDS_GangBeasts.jpg)
 
 ---
 
 # Minigame Design
 
-- The game consists of three core minigames:
-  - Arena combat  
-  - Memory challenge  
-  - Quick Time Event challenge  
+- Three core minigames  
+- Each focuses on different player skills  
+- Encourages variety, replayability and player retention
 
-- Each minigame tests different player skills  
+![w:350](<Image Minigame 1-1.PNG>) ![w:350](<minigame 2-1.PNG>) ![w:350](<minigame 3-1.PNG>)
 
 ---
 
 # Arena (PvP Minigame)
 
-- Players fight in a shared arena  
-- Weapons include:
-  - Cutlass   
-  - Firearms  
-
-- Environment includes traps and hazards  
+- Free-for-all combat on a pirate island  
+- Weapons and coins spawn dynamically  
+- Environmental hazards create unpredictability  
 - Last player standing wins  
+
+![bg opacity:0.7](<minigame 1.PNG>)
 
 ---
 
 # Memory Minigame
 
-- Coins appear briefly on screen  
-- Players must count and remember the total  
-- Players input their answer  
+- Players observe coin placements briefly  
+- Coins disappear after a short time  
+- Players estimate and input the total  
 - Incorrect answers result in elimination  
+- Last player standing wins  
+
+![bg opacity:0.2](<minigame 2-2.PNG>)
 
 ---
 
 # Quick Time Event Minigame
 
-- Players receive directional inputs (up, down, left, right)  
-- Must react quickly within a time limit  
-- Difficulty increases over time  
-- Players who fail are eliminated  
+- Directional inputs appear on screen  
+- Players must react within a time limit  
+- Speed and difficulty increase over time  
+- Incorrect or missed inputs result in loss of Health Points
+- Last player standing wins  
+
+![bg opacity:0.2](<minigame 3-2.PNG>)
+
+---
+
+# Why Our Minigames Work
+
+- Each minigame tests different player skills  
+- Encourages variety and replayability  
+- Supports fast-paced gameplay loop  
+- Creates unpredictable and engaging outcomes
+
+
 
 ---
 
 # Research and Inspiration
 
-- Focus on successful party game mechanics:
-  - Social interaction  
-  - Chaos and unpredictability  
-  - Simple but engaging gameplay  
+- Focus on social interaction and unpredictability
+- Emphasis on emergent gameplay
 
-- Inspired by existing multiplayer games:
-  - Gang Beasts  
-  - Sea of Thieves  
-  - Ultimate Chicken Horse  
+- Gang Beasts  
+- Sea of Thieves  
+- Ultimate Chicken Horse  
 
----
-
-# Environment Development
-
-- Created a low-poly island prototype  
-- Includes:
-  - Beach areas  
-  - Cliffs and elevation  
-  - Playable terrain  
-
-- Separate ocean mesh implemented  
+![bg opacity:0.2 w:1000](<H2x1_NSwitchDS_GangBeasts.jpg>)
+![bg opacity:0.3 w:890](<Sea of Thieves 16_04_2026 23_27_12.png>)
+![bg opacity:0.3 w:1000](H2x1_NSwitchDS_UltimateChickenHorse.jpg)
 
 ---
 
-# Technical Progress
+# Applying research to Design
 
-- Unreal Engine 5 project setup completed  
-- Basic player systems implemented  
-- Established workflow:
-  - Blender for modelling  
-  - Unreal Engine for integration  
+- Arena:
+  - Inspired by unpredictable multiplayer combat  
+  - Dynamic weapons and hazards create an emergent and chaotic gameplay
 
----
+- Memory:
+  - Simple mechanics with competitive pressure  
+  - Inspired by quick, social party challenges like Mario Party  
 
-# Asset Creation
-
-- Began modelling key assets:
-  - Environment elements  
-  - Props (e.g. cannons)  
-  - Early ship components  
-
-- Focus on low-poly style for performance and clarity  
-
----
-
-# Current State
-
-- Core game concept fully defined  
-- Minigames designed and implemented  
-- Environment prototype completed  
-- Initial assets created  
+- QTE:
+  - Reaction-based gameplay with increasing difficulty  
+  - Keeps players engaged and under pressure
 
 ---
 
 # Next Steps
 
-- Continue development of minigame mechanics  
-- Improve player controls and interaction  
+- Finalise minigame mechanics  
+- Improve player interaction  
 - Expand asset library  
-- Begin playtesting and balancing  
+- Conduct playtesting and balancing  
