@@ -64,8 +64,6 @@ Gang Beasts released in 2017 by Boneloaf studios was our main inspiration behind
 
 ![Example of Gang Beasts map](ReadMeImages/image-3.png)
 
-#### Sea of Thieves:
-
 ### Tutorial Sources
 
 (How to Change/Load Levels - Unreal Engine 5 Tutorial) I used this video to help introduce me to creating different levels so that I could make seperate levels for the lobby and the three minigames. As well as learning about the "Open level" function so that I can switch between the levels. 
@@ -85,7 +83,6 @@ Gang Beasts released in 2017 by Boneloaf studios was our main inspiration behind
 (How to Make a Rnadom Enemy Spawner in Unreal Engine 5) I used this video to help me make sword spawning, initially i made the spawner a bunch of spawn blueprints but this video helped me instead make it rely on a nav mesh instead. I then reused the same method for coin spawning and gun spawning on the map.
 
 (How To Spawn Items In Random Locations - Unreal Engine 4 Tutorial) Within Minigame 2 I had to spawn coins suspended in the air and not spawn on the ground so therefore I couldn't use a nav mesh, I instead used this video to refine how to spawn items through blueprint spawn points, I ran into some issues with the video but was able to fix them
-
 
 (How To Put The Player In Spectator Mode When They're Dead - Unreal Engine Tutorial) I used this video to learn about the spectator actor and have the pvp players switch to posses the spectator actor instead. 
 
@@ -142,7 +139,7 @@ I then focused on the sword being able to impact things and players, so with my 
 Sword to attack:
 ![Sword Code](image-3.png)
 
-With the sword working and being able impact and damage dummies made I had to focus on making the multiplayer.
+With the sword working and being able impact and damage dummies made I had to focus on making the multiplayer, which I ended up having massive struggle with. Initialy I was running a for loop for the amount of devices connected however this was spawning far too many players 
 - Traps
 - Death, ragdoll, spectator
 - Gun
