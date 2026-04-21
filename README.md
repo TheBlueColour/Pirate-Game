@@ -8,10 +8,6 @@
 
 **Total Word Count:** \[XXXX]
 
-**API Reference Link:** \[URL]
-
-**User Guide Link:** \[URL]
-
 **Build Link:** \[URL or Embed]
 
 **Video Demonstration Link:** \[URL or Embed]
@@ -80,7 +76,7 @@ Gang Beasts released in 2017 by Boneloaf studios was our main inspiration behind
 
 (HITSCAN vs PROJECTILE | Explanation and Unreal Engine Implementation [UE4/UE5 EA2]) I used this video to learn how to make a hitscan gun, I ended up learning that hitscan uses the same line trace mechanic as my sword but it tracks the end of the gun and a has a long line trace to check if it overlaps with another player. 
 
-(How to Make a Rnadom Enemy Spawner in Unreal Engine 5) I used this video to help me make sword spawning, initially i made the spawner a bunch of spawn blueprints but this video helped me instead make it rely on a nav mesh instead. I then reused the same method for coin spawning and gun spawning on the map.
+(How to Make a Random Enemy Spawner in Unreal Engine 5) I used this video to help me make sword spawning, initially i made the spawner a bunch of spawn blueprints but this video helped me instead make it rely on a nav mesh instead. I then reused the same method for coin spawning and gun spawning on the map.
 
 (How To Spawn Items In Random Locations - Unreal Engine 4 Tutorial) Within Minigame 2 I had to spawn coins suspended in the air and not spawn on the ground so therefore I couldn't use a nav mesh, I instead used this video to refine how to spawn items through blueprint spawn points, I ran into some issues with the video but was able to fix them
 
@@ -93,6 +89,10 @@ Gang Beasts released in 2017 by Boneloaf studios was our main inspiration behind
 (How To Make A Countdown Timer | Unreal Engine 5 Tutorial) I used this video to learn how to make a countdown timer for my lobby and my Visual Minigame! 
 
 (How To Make Gamepad Naivgation For Menu/UI Widgets In Unreal Engine 5) I used this video to try and make the menu work for both the keyboard users and the gamepad, however this didnt work really well as the menu only either wants to be used by the mouse or the gamepad and wont focus on both at the same time.
+
+(How To Change Windowed Mode in Unreal Engine 5 | UE5 Concept Overview) I used this tutorial to help me create a button to switch between fullscreen and windowed mode within the game. 
+
+(How to Make a Simple Volume Slider in Unreal Engine 5) I used this tutorial to help with creating the volume slider in game so that the volume can be increased or decreased. 
 
 ## Implementation 
 
@@ -134,25 +134,57 @@ The next major thing with the sword is the ability to pick it up for the player,
 The Sword interaction within the Player Character:
 ![Sword Picking up](image-2.png)
 
-I then focused on the sword being able to impact things and players, so with my placeholder sword I made it a skeleton mesh and within the skeleton added two sockets at the start of the sword and the end of the sword so I'm able to reference these points into my line trace. With these two points I am able to input it into my line trace so it has a start and an end which will pernamently be tracking the sword's movement with the out hit being a general damage dealer to anything that has health will depleate health the same amount every single time. Later once I recieved a sword swing animation from Mike Levin I converted it into an Animation Montage so that I could add "notifys" in the animation to for what duration of the animation the line trace needs to be active, so that the line trace can actually be active that entire time I switched the function to be a timer function that loops for the time of the notifs in the animation montage. 
+I then focused on the sword being able to impact things and players, so with my placeholder sword I made it a skeleton mesh and within the skeleton added two sockets at the start of the sword and the end of the sword so I'm able to reference these points into my line trace. With these two points I am able to input it into my line trace so it has a start and an end which will pernamently be tracking the sword's movement with the out hit being a general damage dealer to anything that has health will depleate health the same amount every single time. Later once I recieved a sword swing animation from Mike Levin I converted it into an Animation Montage so that I could add "notifys" in the animation to for what duration of the animation the line trace needs to be active, so that the line trace can actually be active that entire time I switched the function to be a timer function that loops for the time of the notifs in the animation montage. After some playtest I moved the "end" node within the sword skeleton to make the line trace longer and make it easier for players to hit each other. 
 
 Sword to attack:
 ![Sword Code](image-3.png)
 
-With the sword working and being able impact and damage dummies made I had to focus on making the multiplayer, which I ended up having massive struggle with. Initialy I was running a for loop for the amount of devices connected however this was spawning far too many players 
-- Traps
-- Death, ragdoll, spectator
-- Gun
-- Animations
+With the sword working and being able impact and damage dummies made I had to focus on making the multiplayer, which I ended up having massive struggle with. I made the game mode run a for loop for the amount of users connected creating a local player for each user number into the Contoller ID. I then ran into a problem where ID 1 wasnt being assigned correctly and being skipped over, turns out there is a setting in Unreal that assumes the keyboard is gamepad 0 and assigns it to ID 1 as well as assigning it normally to ID 0. To fix this, i just changed the setting to assign the "gamepad" to the keyboard, so that each other gamepad assigns correctly.
+
+Spawning Players:
+![GameMode for ](image-9.png)
+
+To make PVP minigame more interesting I added traps accros the map into the floor, when a player runs over the trapped floor, it will disapear and the player will fall into spikes. The spikes will damage the player an exact amount of ten health and then be deleted afterwards, leaving a gap in the floor that the players can fall into. I had to alter the code slightly afterwards to only disapear and trigger upon being walked over by the players and not triggered by the coins spawning. 
+
+The trap:
+![The trap](image-10.png)
+
+The spikes:
+![The Spikes](image-11.png)
+
+Instead of destroying the actor when the player dies which would cause issues with the actor and any info they hold, I wanted to make the player become a spectator upon death. I changed the physics within the player that when their health hits zero the player will ragdoll and possess a spectator actor instead loosing control of the player. Inside the spectator actor I had to change it's collision so that it can not walk through walls and is confined within the map and cant just fly far away from the main map. Upon death the player's death is cashed into an array item, where in the trigger back to the lobby, it checks all 4 array items against the number 1 and if it is 1 the game knows not to give that player a win, if the array number is 0 it assigns it a win. I ran into an issue where the switch int, that assigns the array int into the correct slot depending on the player controller ID was only registering ID 1 and I learnt about a "get controller" function that allows me to cast to the player controller and get it's ID depending on who is playing so that the switch on int works properly and assigns the correct deaths. 
+
+Player death function:
+![Player Death part 1](image-12.png)
+![Player Death part 2](image-13.png)
+![Player Death part 3](image-14.png)
+
+As an additional special item for the PVP map, I wanted to create a Gun that spawns rarely, can only be used once but deals high amounts of damage. I was able to use the Unreal assets for the gun, gun holding animation and the shooting animation, and with that rehashed the same code I did for the sword spawning and the pick up interaction. The gun's linetrace functions slightly different, the gun itself has one node which is the start of the line trace and the end of it's line trace is thousands infront of it, this creates one straight line trace (which clarrifies the gun as a hitscan) which when overlapped with the player damages them for 30 health. I added booleans that check if the player holds a gun or sword already and if they do, they can not pick up a new gun or sword. 
+
+
+With my teammate creating player models and animations for jumping and sword swinging I had to learn how to use state machines and assign the animations to the new player models by retargetting them. Unfortunately the walking animation my teammate Mike provided overlapped with the walking input of the player so I was unable to use that animation and instead retargetted the movement system from the unreal preset onto the player models. For this I had to source the direction and the speed of the player for the entire animation to work properly. For the jumping animation Mike provided, I had to splice it into two, the jump part and the falling part so that the state machine is able to transition between the two for the animation, for the jumping the state machine has to know if the player has jumped and for the falling animation the state machine has to know if the player is currently falling in air. On top of this with Unreal preset animation, if the player has a gun the animation for holding a gun plays and if the gun is shot the Unreal preset animation plays before returning to the normal walking animation without holding a gun. 
+
+The state machine:
+![The state machine](image-15.png)
+
+The event diagram to retrieve various information for animations to be performed:
+![State Machine Event Diagram](image-16.png)
 
 
 ### Minigame 2:
 
-- Spawning coins
-- The widget and how it was done incorrectly at first, altered to work
-- Spawning random items
-- Resetting Coins and items
-- Timer and blinds
+The first thing I needed to get done for this minigame was spawning in the coins, as these coins would spawn in the air in a bunch of different spots, which meant I was unable to use the nav mesh method I used in the PVP minigame and instead had to create multiple spawn points for the coins. I then ran into a problem that the function the tutorial I used provided, required to delete the spawn points after being used as they will be then used multiple times so the player cant see the correct amount of coins, however if the actor is deleted then it cant be reused in multiple rounds of spawning the coins. So I decided to set a hard limit to six rounds, and a certain high point of how many random items can spawn, and then placed the corresponding spawn points that will be able to do 6 rounds each time. I reused this method for spawning other items that arent coins to obscure the coins. 
+
+Spawning Coins:
+![Spawning coins randomly](image-17.png)
+
+For the widget, at first I made it clickable with a mouse and then alterable with gamepad controls however that meant any player could interact with any of the widgets and not just their own which could lead to sabotage. So instead now the increase and decrease arrows are connected to specific buttons (like the left arrow or right arrow on the keyboard or the dpad on the controller) that when pressed checks the controller ID and alters the coresponding widget instead. 
+
+Example of the increase button:
+![Increase Button](image-18.png)
+
+Example of how in the controller if sends the controller ID to be checked:
+![Increase Button](image-19.png)
 
 ### Minigame 3:
  
@@ -263,7 +295,62 @@ How To Make A Countdown Timer | Unreal Engine 5 Tutorial - YouTube (s.d.) At: ht
 
 How To Make Gamepad Navigation For Menu/UI Widgets In Unreal Engine 5 - YouTube (s.d.) At: https://www.youtube.com/watch?v=RdaAVTMIg08&t=323s (Accessed  07/04/2026).
 
+How To Change Windowed Mode in Unreal Engine 5 | UE5 Concept Overview - YouTube (s.d.) At: https://www.youtube.com/watch?v=2tRVwujG9BY (Accessed  21/04/2026).
+
+How to Make a Simple Volume Slider in Unreal Engine 5 - YouTube (s.d.) At: https://www.youtube.com/watch?v=6No5rKgU4Wo&t=3s (Accessed  21/04/2026).
+
 
 #### Declared Assets
  
 Arrow Symbols (Copy and Paste) ← ↑ → ↓ – Unicode Arrows & Arrow Emojis (s.d.) At: https://www.i2symbol.com/symbols/arrows (Accessed  07/04/2026).
+
+Certain code change and help was used with ai help (Copilot, Epic Developer Assistant and Gemini):
+    - Packaging the project, changing so that there's a delay between loading into a level so there are no issues with packaging.
+    - Finding a way to see a character's controller, and adding the "Get Controller" function 
+    ![Get controller function](image-20.png)
+    - Finding a solution on how to separate input in the third minigame, by checking input within the controller and casting to the gamemode the ID from the controller.
+    ![Seperating Input](image-21.png)
+
+All these assets were created by my teammate Mike Levin:
+    - FeatherWSkeleton and all associated assest
+    - The island asset
+    - The water asset
+    - The barrelWcanonballs asset
+    - The cannonball asset
+    - Cannonballs asset
+    - CanonWcarriage asset
+    - coin asset
+    - coin_barrle asset
+    - helm asset
+    - longGUN asset
+    - smaller_barrel_with_coins asset
+    - the cutlass asset and its associated skeletons
+    - fort asset
+    - fort_flag asset and the drawing of the United Kingdom flag material
+    - HMS_Karoline asset
+
+    As well as these sounds with the use of a game on steam called picoSYNTH (a game that allows users to create different sounds to be used externally from the game)
+        - click.wav
+        - deathwav.wav
+        - hitHurt.wav
+        - jump.wav
+        - laserShoot.wav
+        - pickupCoin.wav
+        - pickupWeapon.wav
+These animations were imported into our game for the players from a free website called mixamo:
+- Jumping animation
+- Running animation
+- Sword_Slash animation
+- Unused walking animation
+
+Any other asset (except for the placeholder sword asset I made) is used from Unreal's premade assets. 
+
+Mixamo (s.d.) At: https://www.mixamo.com/#/ (Accessed  21/04/2026).
+
+picoSYNTH on Steam (s.d.) At: https://store.steampowered.com/app/2949300/picoSYNTH/ (Accessed  21/04/2026).
+
+Super Mario Party™ - My Nintendo Store (s.d.) At: https://store.nintendo.co.uk/en/super-mario-party-70010000014063?srsltid=AfmBOor0SHcG4YJ2wPVzD31_CzTz6ir1BB1WMd11XPDPx-ZsZgLh1sFa (Accessed  21/04/2026).
+
+Sonic Unleashed - Wikipedia (s.d.) At: https://en.wikipedia.org/wiki/Sonic_Unleashed (Accessed  21/04/2026).
+
+
