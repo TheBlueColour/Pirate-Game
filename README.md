@@ -6,7 +6,7 @@
 
 **Student ID:** 2506784 
 
-**Total Word Count:** \[XXXX]
+**Total Word Count:** \ Around 6000 words. 
 
 **Build Link:** \[URL or Embed]
 
@@ -144,7 +144,7 @@ With the sword working and being able impact and damage dummies made I had to fo
 Spawning Players:
 ![GameMode for ](image-9.png)
 
-To make PVP minigame more interesting I added traps accros the map into the floor, when a player runs over the trapped floor, it will disapear and the player will fall into spikes. The spikes will damage the player an exact amount of ten health and then be deleted afterwards, leaving a gap in the floor that the players can fall into. I had to alter the code slightly afterwards to only disapear and trigger upon being walked over by the players and not triggered by the coins spawning. 
+To make PVP minigame more interesting I added traps across the map into the floor, when a player runs over the trapped floor, it will disapear and the player will fall into spikes. The spikes will damage the player an exact amount of ten health and then be deleted afterwards, leaving a gap in the floor that the players can fall into. I had to alter the code slightly afterwards to only disapear and trigger upon being walked over by the players and not triggered by the coins spawning. 
 
 The trap:
 ![The trap](image-10.png)
@@ -188,14 +188,25 @@ Example of how in the controller if sends the controller ID to be checked:
 
 ### Minigame 3:
  
-- Displaying different arrows over time
-- The incorrect input
-- The controller and checking input
-- Checking which players lost (for all minigames lowkey)
+To figure out a way to have the game over time display a new arrow for the minigame, without it doing it too quickly and displaying multiple arrows at once that can not be clicked at the same time. My way of making this minigame work is, every event tick the game checks if all four input boolean variables are true, if they are, it takes the keys array that have "Right, Left, Up, Down" in it, and picks a random index of the array, to input into a switch int as well as get the specific key of that index. Depending on what the index array is, the respective arrow will be altered to have its colour turn into yellow for a second before changing back into white and setting the Input boolean to false and running the Check Answers function. Before I move onto the Check Answers function, the way the players inputs are gathered (which was slightly altered by Gen AI that as it was able to help us realise how to grab the controller id and that we need it from the controller blueprint specifically) is in the minigame 3 controller. The input functions are all seperatted, clicking Left (or the D-pad variant) will trigger the SetKeys function but submit the correct index to identity that the button clicked was left, whereas Right would do the same thing but with its own index (I gave all these directions their index as variables).The controller ID and the index number of the button clicked into the function called Setkeys, it checks the contoller ID in a switch int and then checks the button clicked ID to then alter that player's coresponding text variable to be "LEFT" for example. 
 
-### Lobby
+Moving onto the CheckAnswers function, it does a sequence to do this for all four players, it checks if that specific player has failed, if they have failed their input would be immediately assigned to true, then there's a delay that over time decreases in the code to allow the player more time to respond. After the delay has ended it will check the input that specific player got with the randomised input that was displayed on screen and if its true it will go onto setting that player's input to true, before flashing the green tick on screen and decreasing the timer as well as overriding their input with "NO" so the player is required to reclick the button even if the same arrow flashes on screen twice. If the player didnt get the input right, it will check their health against 1, if their health is greater than one, and greater than two it decrease the first bar of health and then change the input boolean to true as well as overriding the input again and decreasing the timer. If their health is greater than one but equal to two it will decrease the second health bar and then set input boolean to true, override input and decrease timer. If the health is one (or smaller), it will decrease the last health and then add to the failed answers, fails the player so they cant answer anymore and also pernamently set their Input boolean to true. Every player has the same code with the exception that Player 2, 3 and 4 have a thing before their code that checks if they are connected into the game, if those players dont exist then the code with automatically set their Input boolean to true and not carry out any of the rest of the code.
 
-- Checking which players win after all three minigames
+Setting the input of the player:
+![Input stuff](image-22.png)
+
+Getting a random input for the players to click:
+![Setting what input they need](image-23.png)
+
+The CheckAnswers code, one branch of it that checks player 1:
+![One branch of the checking code](image-24.png)
+
+### Lobby pt2 
+
+After all three minigames are played, the game checks which player has won through a whole probabilty branch of checking the wins players have against each other to then assign the text in the widget to the correct winner and display it on screen.
+
+The entire probability branch to check who has won:
+![Probability branch](image-25.png)
 
 ## Peer Testing
 
@@ -262,6 +273,10 @@ Lastly I asked the players wany additional feedback or features they would like 
 From all these suggestions I was able to add a gun into the pvp minigame, all the healths of the players are displayed on screen and the game locks the player out from picking up multiple swords at once, and the line trace following the entire animation swing rather than just one click of the mouse/button. As well as I added instructions before every single minigame on how to play and what controls the minigames use. For the arrow minigame I was able to add a timer between each press so that the player must respond in a certain amount of time, as well as a visual indication of what button they must press with the arrows flashing yellow and a green tick indication if they responded correctly. For the Counting Coins minigame I was able to prevent sabotage by making the ui only accessable by certain controller id's and through buttons on the keyboard/gamepad rather than clicking on the mouse.
 
 ## Critical Relfection
+
+I was able to include most of the features that I wanted within the game, and the PVP minigame shines as the most interactive and fun minigame for players. I am glad I was able to separate input for the second and third minigame so well and as well as make the game so accessible for all four players while still having the game be playable for just two or three players. 
+
+I wish I was able to have the coins in minigame 2 move, as well as have more traps in the pvp minigame, as well as finding a way to make the rhythm game go much faster and require faster inputs without it breaking and setting too many inputs way too quickly. 
 
 ## Bibliography
 
@@ -337,13 +352,16 @@ All these assets were created by my teammate Mike Levin:
         - laserShoot.wav
         - pickupCoin.wav
         - pickupWeapon.wav
+
+The song PirateGameMusicLoop.wav is made by my other teammate Spencer Dilley
+
 These animations were imported into our game for the players from a free website called mixamo:
 - Jumping animation
 - Running animation
 - Sword_Slash animation
 - Unused walking animation
 
-Any other asset (except for the placeholder sword asset I made) is used from Unreal's premade assets. 
+Any other asset (except for the placeholder sword asset I made in Blender) is used from Unreal's premade assets. 
 
 Mixamo (s.d.) At: https://www.mixamo.com/#/ (Accessed  21/04/2026).
 
