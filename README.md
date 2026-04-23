@@ -92,6 +92,8 @@ Gang Beasts released in 2017 by Boneloaf studios was our main inspiration behind
 
 (How to Make a Simple Volume Slider in Unreal Engine 5) I used this tutorial to help with creating the volume slider in game so that the volume can be increased or decreased. 
 
+(How to Play Background Music in a Loop in Unreal Engine 5) I used this tutorial to add music in the background of the entire game and looping.
+
 ## Implementation 
 
 ### The Lobby
@@ -312,6 +314,8 @@ How To Change Windowed Mode in Unreal Engine 5 | UE5 Concept Overview - YouTube 
 
 How to Make a Simple Volume Slider in Unreal Engine 5 - YouTube (s.d.) At: https://www.youtube.com/watch?v=6No5rKgU4Wo&t=3s (Accessed  21/04/2026).
 
+How to Play Background Music in a Loop in Unreal Engine 5 - YouTube (s.d.) At: https://www.youtube.com/watch?v=1JelVc00qFQ (Accessed  23/04/2026).
+
 
 #### Declared Assets
  
@@ -368,5 +372,10 @@ picoSYNTH on Steam (s.d.) At: https://store.steampowered.com/app/2949300/picoSYN
 Super Mario Party™ - My Nintendo Store (s.d.) At: https://store.nintendo.co.uk/en/super-mario-party-70010000014063?srsltid=AfmBOor0SHcG4YJ2wPVzD31_CzTz6ir1BB1WMd11XPDPx-ZsZgLh1sFa (Accessed  21/04/2026).
 
 Sonic Unleashed - Wikipedia (s.d.) At: https://en.wikipedia.org/wiki/Sonic_Unleashed (Accessed  21/04/2026).
+
+Save 60% on Gang Beasts on Steam (s.d.) At: https://store.steampowered.com/app/285900/Gang_Beasts/ (Accessed  23/04/2026).
+
+Party Panic on Steam (s.d.) At: https://store.steampowered.com/app/506500/Party_Panic/ (Accessed  23/04/2026).
+
 
 
