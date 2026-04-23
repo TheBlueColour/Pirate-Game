@@ -109,6 +109,7 @@ The level change function:
 Within the lobby I then added two different widgets for the UI, within the Level Blueprint for the lobby level it triggers the first widget which is the Main Menu, that pauses the game and allows the player to "Play" the game, check the "Controls" and "Exit" the game. I initally wanted the Main Menu to register with both mouse clicking and the controller however the two wouldn't work at the same time so I priotized the mouse, making sure that the mouse is shown during the menu. 
 
 ![Menu Screen](ReadMeImages/image-7.png)
+![Gif](ReadMeImages/Video%20Project12.5.gif)
 
 This Main Menu screen is then reused as a Pause Menu if the player click "P" or "Start" on the controller, it sets a boolean called "Playing?" if it has been used once and since then it will not redirect to the second Widget and just be used as a Pause Menu (which was an issue at first in other minigames). If the Menu is used for the first time upon loading in pressing "Play" will unpause the game and spawn the second Widget in that tracks how many players there are playing and depending on how many there are the Widget requires for that many players to click "enter" or "start" to click Ready. A countdown will then trigger that updates every tick to countdown and once its zero the players are teleported to a minigame. 
 
@@ -129,6 +130,7 @@ Sword Spawing Blueprint Actor:
 Sword Spawning Function:
 ![Sword Spawning](image-1.png)
 
+
 The next major thing with the sword is the ability to pick it up for the player, so I gave the player an input mapping for interacting and then gave the sword an interface. Within the sword if its interacted with the sword will simply destroy itself, it's within the Third Person Character that the game checks if the item interacted with is the sword wanted and running the sword interface. If it is the sword being interacted with, a skeletal mesh asset the player contains on their character is filled in with the sword asset and has a boolean of "Has ASword" is marked true so any actions that require a sword can now be performed. 
 
 The Sword interaction within the Player Character:
@@ -138,6 +140,8 @@ I then focused on the sword being able to impact things and players, so with my 
 
 Sword to attack:
 ![Sword Code](image-3.png)
+
+![](ReadMeImages/Video%20Project11.5.gif)
 
 With the sword working and being able impact and damage dummies made I had to focus on making the multiplayer, which I ended up having massive struggle with. I made the game mode run a for loop for the amount of users connected creating a local player for each user number into the Contoller ID. I then ran into a problem where ID 1 wasnt being assigned correctly and being skipped over, turns out there is a setting in Unreal that assumes the keyboard is gamepad 0 and assigns it to ID 1 as well as assigning it normally to ID 0. To fix this, i just changed the setting to assign the "gamepad" to the keyboard, so that each other gamepad assigns correctly.
 
@@ -170,6 +174,9 @@ The state machine:
 The event diagram to retrieve various information for animations to be performed:
 ![State Machine Event Diagram](image-16.png)
 
+![](ReadMeImages/Video%20Project11.gif)
+![](ReadMeImages/Video%20Project10.gif)
+
 
 ### Minigame 2:
 
@@ -186,6 +193,9 @@ Example of the increase button:
 Example of how in the controller if sends the controller ID to be checked:
 ![Increase Button](image-19.png)
 
+![](ReadMeImages/Video%20Project12.gif)
+![](ReadMeImages/Video%20Project13.gif)
+
 ### Minigame 3:
  
 To figure out a way to have the game over time display a new arrow for the minigame, without it doing it too quickly and displaying multiple arrows at once that can not be clicked at the same time. My way of making this minigame work is, every event tick the game checks if all four input boolean variables are true, if they are, it takes the keys array that have "Right, Left, Up, Down" in it, and picks a random index of the array, to input into a switch int as well as get the specific key of that index. Depending on what the index array is, the respective arrow will be altered to have its colour turn into yellow for a second before changing back into white and setting the Input boolean to false and running the Check Answers function. Before I move onto the Check Answers function, the way the players inputs are gathered (which was slightly altered by Gen AI that as it was able to help us realise how to grab the controller id and that we need it from the controller blueprint specifically) is in the minigame 3 controller. The input functions are all seperatted, clicking Left (or the D-pad variant) will trigger the SetKeys function but submit the correct index to identity that the button clicked was left, whereas Right would do the same thing but with its own index (I gave all these directions their index as variables).The controller ID and the index number of the button clicked into the function called Setkeys, it checks the contoller ID in a switch int and then checks the button clicked ID to then alter that player's coresponding text variable to be "LEFT" for example. 
@@ -200,6 +210,9 @@ Getting a random input for the players to click:
 
 The CheckAnswers code, one branch of it that checks player 1:
 ![One branch of the checking code](image-24.png)
+
+![](ReadMeImages/Video%20Project14.gif)
+
 
 ### Lobby pt2 
 
