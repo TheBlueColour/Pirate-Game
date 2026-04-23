@@ -8,9 +8,7 @@
 
 **Total Word Count:** \ Around 6000 words. 
 
-**Build Link:** \[URL or Embed]
-
-**Video Demonstration Link:** \[URL or Embed]
+**Build Link:** \ https://thebluecolour.itch.io/pirate-game
 
 ---
 
