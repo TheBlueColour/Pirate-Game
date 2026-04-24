@@ -358,6 +358,7 @@ All these assets were created by my teammate Mike Levin:
     - fort asset
     - fort_flag asset and the drawing of the United Kingdom flag material
     - HMS_Karoline asset
+    - Pirate game logo
 
     As well as these sounds with the use of a game on steam called picoSYNTH (a game that allows users to create different sounds to be used externally from the game)
         - click.wav
